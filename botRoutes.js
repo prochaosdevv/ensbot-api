@@ -111,14 +111,14 @@ botRotues.get('/', async (req, res) => {
         const text = callback.data;
         console.log(text.startsWith("/renew_"))
         console.log(text)
-        if (processedMessages.has(messageId) && (!text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack")) {
+        if (processedMessages.has(messageId+callback.id+callback.inline_message_id+callback.message.date)) {
             console.log("same")
 
             return;
 
         }
 
-        processedMessages.add(messageId);
+        processedMessages.add(messageId+callback.id+callback.inline_message_id+callback.message.date);
 
         if (text == "/list") {
             sendListMsg(callback.message)
