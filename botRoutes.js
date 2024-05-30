@@ -109,10 +109,13 @@ botRotues.get('/', async (req, res) => {
         const chatId = callback.message.chat.id;
         const messageId = callback.message.message_id;
         const text = callback.data;
-        console.log(text.startsWith("/update_"))
+        console.log(text.startsWith("/renew_"))
         console.log(text)
-        if (processedMessages.has(messageId) || (!text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack")) {
+        if (processedMessages.has(messageId) && (!text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack")) {
+            console.log("same")
+
             return;
+
         }
 
         processedMessages.add(messageId);
