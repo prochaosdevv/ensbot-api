@@ -111,11 +111,12 @@ botRotues.get('/', async (req, res) => {
         const text = callback.data;
         console.log(text.startsWith("/update_"))
         console.log(text)
-        if (processedMessages.has(messageId) && !text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack") {
+        if (processedMessages.has(messageId) || (!text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack")) {
             return;
         }
 
         processedMessages.add(messageId);
+
         if (text == "/list") {
             sendListMsg(callback.message)
         }
