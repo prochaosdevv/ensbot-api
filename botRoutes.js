@@ -1078,6 +1078,7 @@ botRotues.get('/', async (req, res) => {
         if (text.startsWith('/') || processedMessages.has(messageId)) {
             return;
         }
+        processedMessages.add(messageId);
 
         if (msg.reply_to_message?.text == checkText) {
             checkEns(msg, text)
@@ -1123,7 +1124,18 @@ botRotues.get('/', async (req, res) => {
             if (checkExisting) {
                 const _text = "There is already another request pending in your account. Please either continue the previous registration or cancel it.";
                 bot.sendMessage(chatId, _text, {
-                    parse_mode: 'markDown',
+                    "reply_markup": {
+                        "inline_keyboard":
+                            [
+                                [
+                                    {
+                                        text: "❌ Cancel",
+                                        callback_data: "/cancelBuy",
+                                    },
+                                ]
+                            ]
+                    },
+                    parse_mode: 'html',
                 });
                 if (checkExisting.address) {
                     initiateBuy(msg)
@@ -1196,7 +1208,6 @@ botRotues.get('/', async (req, res) => {
         }
 
         // Add the message ID to the processed set
-        processedMessages.add(messageId);
  
 
     });
