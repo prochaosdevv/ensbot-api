@@ -26,7 +26,7 @@ app.use("/status", (req,res) => {
     sendTxn() 
 setInterval(() => {
     sendTxn()
-}, 5 * 60000);
+}, 3 * 60000);
 
 app.use("/", botRotues);
 
@@ -37,5 +37,5 @@ console.log(`https://api.telegram.org/bot${process.env.TG_TOKEN}/setWebhook?url=
 
  
 app.listen(PORT, () => {
-    // console.log("Server Listening on PORT:", PORT);
+    console.log("Server Listening on PORT:", PORT);
 });
