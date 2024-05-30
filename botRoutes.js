@@ -41,6 +41,8 @@ botRotues.get('/', async (req, res) => {
 
     // Matches "/start"
     bot.onText(/\/start/, (msg) => {
+        const messageId =   msg.message_id;
+
         if (processedMessages.has(messageId)) {
             return;
         }
@@ -51,6 +53,8 @@ botRotues.get('/', async (req, res) => {
 
 
     bot.onText(/\/check/, (msg) => {
+        const messageId =   msg.message_id;
+
         if (processedMessages.has(messageId)) {
             return;
         }
@@ -61,7 +65,9 @@ botRotues.get('/', async (req, res) => {
     });
 
 
-    bot.onText(/\/buy/, (msg) => {
+    bot.onText(/\/buy/, (msg) => { 
+        const messageId =   msg.message_id;
+
         if (processedMessages.has(messageId)) {
             return;
         }
@@ -74,6 +80,8 @@ botRotues.get('/', async (req, res) => {
 
 
     bot.onText(/\/update/, (msg) => {
+        const messageId =   msg.message_id;
+
         if (processedMessages.has(messageId)) {
             return;
         }
@@ -87,6 +95,8 @@ botRotues.get('/', async (req, res) => {
 
 
     bot.onText(/\/list/, (msg) => {
+        const messageId =   msg.message_id;
+
         if (processedMessages.has(messageId)) {
             return;
         }
