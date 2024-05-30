@@ -32,8 +32,8 @@ app.use("/", botRotues);
 
 
  
-const url = 'https://1dcc-2401-4900-1c75-3c8b-5c80-925a-255a-be16.ngrok-free.app'
-console.log(`https://api.telegram.org/bot${process.env.TG_TOKEN}/setWebhook?url=${url}/bot`);
+const url = 'https://d3kfm3vrotemri.cloudfront.net'
+console.log(`https://api.telegram.org/bot${process.env.TG_TOKEN}/setWebhook?url=${url}`);
 
  
 app.listen(PORT, () => {

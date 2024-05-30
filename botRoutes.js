@@ -41,29 +41,45 @@ botRotues.get('/', async (req, res) => {
 
     // Matches "/start"
     bot.onText(/\/start/, (msg) => {
-
+        if (processedMessages.has(messageId)) {
+            return;
+        }
         handleStart(msg)
+        processedMessages.add(messageId);
 
     });
 
 
     bot.onText(/\/check/, (msg) => {
-
+        if (processedMessages.has(messageId)) {
+            return;
+        }
         sendCheckMsg(msg)
+        processedMessages.add(messageId);
+
 
     });
 
 
     bot.onText(/\/buy/, (msg) => {
-
+        if (processedMessages.has(messageId)) {
+            return;
+        }
 
         sendBuyMsg(msg)
+        processedMessages.add(messageId);
+
     });
 
 
 
     bot.onText(/\/update/, (msg) => {
+        if (processedMessages.has(messageId)) {
+            return;
+        }
         sendUpdateMsg(msg)
+        processedMessages.add(messageId);
+
     });
 
 
@@ -71,6 +87,9 @@ botRotues.get('/', async (req, res) => {
 
 
     bot.onText(/\/list/, (msg) => {
+        if (processedMessages.has(messageId)) {
+            return;
+        }
         sendListMsg(msg)
     });
 
