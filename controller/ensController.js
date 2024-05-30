@@ -361,7 +361,7 @@ exports.sendTxn = async () => {
     }
 
     getEns.map(async (v,i) => {
-         await this.registerEns(v.ens,v.address,v.userId);           
+         await this.registerEns(v.ens.toLowerCase(),v.address,v.userId);           
     })
 
    
