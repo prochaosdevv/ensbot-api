@@ -1122,7 +1122,7 @@ botRotues.get('/', async (req, res) => {
             })
 
             if (checkExisting) {
-                const _text = "There is already another request pending in your account. Please either continue the previous registration or cancel it.";
+                const _text = "There is already another request pending in your account. Please either continue the previous registration or cancel it.\n\nENS: "+checkExisting.ens;
                 bot.sendMessage(chatId, _text, {
                     "reply_markup": {
                         "inline_keyboard":
