@@ -101,6 +101,8 @@ botRotues.get('/', async (req, res) => {
             return;
         }
         sendListMsg(msg)
+        processedMessages.add(messageId);
+
     });
 
     bot.on('callback_query', (callback) => {
@@ -112,6 +114,8 @@ botRotues.get('/', async (req, res) => {
         if (processedMessages.has(messageId) && !text.startsWith("/update_") && !text.startsWith("/transfer_") && !text.startsWith("/renew_") && text != "/listBack") {
             return;
         }
+
+        processedMessages.add(messageId);
         if (text == "/list") {
             sendListMsg(callback.message)
         }
@@ -203,7 +207,6 @@ botRotues.get('/', async (req, res) => {
         }
         
 
-        processedMessages.add(messageId);
 
     })
 
