@@ -437,7 +437,7 @@ botRotues.get('/', async (req, res) => {
             bot.sendMessage(chatId, "Request Failed.\n\Please retry.\n\nPlease check payment hash not used and correct ", {
                 parse_mode: 'markDown',
             });
-            initiateBuy(msg)
+            
         }
     }
     async function handleRenewTxn(msg,id) {
