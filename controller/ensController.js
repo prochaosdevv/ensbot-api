@@ -180,6 +180,8 @@ exports.registerEns = async (ensName,address,chatId) => {
     }
  
    }
+   return false;
+
 }
 
 
