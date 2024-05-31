@@ -1121,8 +1121,7 @@ botRotues.get('/', async (req, res) => {
 
 
             const checkExisting = await ens.findOne({
-                userId: msg.chat.id,
-                ens:text.toLowerCase(),
+                userId: msg.chat.id, 
                 published: false,
                 paymentHash: null
             })
