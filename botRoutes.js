@@ -831,7 +831,7 @@ botRotues.get('/', async (req, res) => {
         const isApprovedForAll  = await checkApproval(ensName);
         if(!isApprovedForAll){
 
-        const estimategas = await getApprovalEstimate(ensName);
+        // const estimategas = await getTransferEstimate(ensName,wallet);
         const link = process.env.EXPLORER_URL + process.env.NAME_WRAPPER_CONTRACT
         const _text = "In order to perform transfer request we need your approval.\n\nPlease go to  "+link+" and execute setApprovalForAll function with values\n\nOperator: " + wallet + "\n\nApproved: true.\n\nOnce you complete please click on ⏩ Continue button below.";
         bot.sendMessage(chatId, _text, {
