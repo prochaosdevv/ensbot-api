@@ -109,7 +109,7 @@ exports.registerEns = async (ensName,address,chatId) => {
     console.log("isAvailable",isAvailable);
     
    if(isAvailable){ 
-    const getExsting  = await ens.findOne({ens: ensName});
+    const getExsting  = await ens.findOne({ens: ensName, published: false, txn: null});
     let _commitHash = null
     if(!getExsting.commitHash){
         _commitHash = await registrarContract.makeCommitment(ensName,address,duration,secret,resolver,data,primary,0); // Replace with the actual function you want to call
@@ -160,7 +160,7 @@ exports.registerEns = async (ensName,address,chatId) => {
          console.log("Registered: ",rhash); 
 
             const _updated = await ens.findOneAndUpdate(
-                { userId: chatId, published: false },
+                { userId: chatId, published: false , ens: ensName, txn: null},
                 {
                   $set: {
                     txn: rhash,

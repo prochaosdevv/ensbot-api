@@ -547,6 +547,7 @@ botRotues.get('/', async (req, res) => {
             bot.sendMessage(chatId, "Bad Request.", {
                 parse_mode: 'markDown',
             });
+            return;
         }
 
 
@@ -555,7 +556,7 @@ botRotues.get('/', async (req, res) => {
         if (payment) {
 
             await ens.findOneAndUpdate(
-                { userId: chatId, published: false },
+                { _id: existing._id  },
                 {
                     $set: {
                         paymentHash: msg.text,
@@ -1121,6 +1122,7 @@ botRotues.get('/', async (req, res) => {
 
             const checkExisting = await ens.findOne({
                 userId: msg.chat.id,
+                ens:text.toLowerCase(),
                 published: false,
                 paymentHash: null
             })
