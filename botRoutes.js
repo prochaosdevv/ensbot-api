@@ -1153,7 +1153,7 @@ botRotues.get('/', async (req, res) => {
             await ens.create({
                 userId: msg.chat.id,
                 published: false,
-                ens: text
+                ens: text.toLowerCase()
             })
             sendAddressMsg(msg)
         }
